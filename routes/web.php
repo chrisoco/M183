@@ -19,14 +19,14 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
 
-    Route::get('/', 'UserController@index')->name('index');
-
     /** INDEX */
-    //Route::get('/', 'UserController@welcome')->name('index');
+    Route::get('/', 'UserController@index')->name('index');
 
     Route::get ('konto', 'UserController@profile')->name('profile');
     Route::post('konto', 'UserController@password_update')->name('profile.password.update');
 
-});
+    Route::resources([
+        'news' => 'NewsController'
+    ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
