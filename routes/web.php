@@ -19,9 +19,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
 
-    Route::get('/', function () {
-        return view('index');
-    })->name('index');
+    Route::get('/', 'UserController@index')->name('index');
 
     /** INDEX */
     //Route::get('/', 'UserController@welcome')->name('index');

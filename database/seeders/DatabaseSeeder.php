@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DefaultRolesSeeder::class,
             DefaultAccSeeder::class,
+            NewsSeeder::class,
         ]);
     }
 }
