@@ -67,6 +67,12 @@
                <div class="card w-100 mb-2" style="box-shadow: 5px 5px 10px #c5c6c9">
             @endif
                 <div class="card-header">
+                    @if($post->user_id == auth()->user()->id)
+                        <div class="float-right">
+                            <a href="#" class="mr-3"><i class="far fa-2x fa-edit"></i></a>
+                            <a href="#" class="mr-3" style="color: red"><i class="far fa-2x fa-trash-alt"></i></a>
+                        </div>
+                    @endif
                     <h4>{{ $post->header }}</h4>
                 </div>
                 <div class="card-body">
@@ -75,9 +81,6 @@
                 <div class="card-footer">
                     {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y h:s') }}
                 </div>
-                @if($post->user_id == auth()->user()->id)
-                    <a href="#" class="stretched-link"></a>
-                @endif
             </div>
 
 
