@@ -30,7 +30,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="navbarDropdown">
 
-                    <a class="dropdown-item" href="{ { route('profile') }}">Konto</a>
+                    <a class="dropdown-item" href="{{ route('profile') }}">Konto</a>
 
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">

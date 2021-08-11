@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function() {
     /** INDEX */
     //Route::get('/', 'UserController@welcome')->name('index');
 
+    Route::get ('konto', 'UserController@profile')->name('profile');
+    Route::post('konto', 'UserController@password_update')->name('profile.password.update');
 
 });
 
