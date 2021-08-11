@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function getIsAdminAttribute(): bool
     {
-        return $this->roles_id == 2;
+        return $this->role_id == 2;
     }
 
 
@@ -54,5 +54,10 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo('App\Models\Role', 'role_id');
+    }
+
+    public function news()
+    {
+        return $this->hasMany('App\Models\News');
     }
 }
