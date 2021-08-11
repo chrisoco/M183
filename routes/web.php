@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/** Auth Routes (Login, Register, Logout) */
+Auth::routes();
+
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/', function () {
+        return view('index');
+    });
+
+    /** INDEX */
+    //Route::get('/', 'UserController@welcome')->name('index');
+
+
 });
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
