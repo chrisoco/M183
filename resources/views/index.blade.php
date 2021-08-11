@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="container">
-        <h1 class="my-4 mb-4 text-center">WELCOME!</h1>
+        <h1 class="my-4 mb-4 text-center">
+            WELCOME! @admin ADMIN @endadmin
+        </h1>
 
 
     </div>
