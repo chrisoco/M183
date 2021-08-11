@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         return view('index', [
-            'news' => News::all(),
+            'news' => News::all()->sortByDesc('created_at'),
         ]);
     }
 
