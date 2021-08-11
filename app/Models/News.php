@@ -36,4 +36,12 @@ class News extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    /**
+     * @return bool
+     */
+    public function getCreatedByAdminAttribute(): bool
+    {
+        return $this->user->IsAdmin;
+    }
 }

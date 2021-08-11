@@ -20,7 +20,12 @@
         </h4>
 
         @foreach($news as $post)
-            <div class="card w-100 mb-2" style="box-shadow: 5px 5px 10px #4a6fff">
+
+            @if($post->CreatedByAdmin)
+               <div class="card w-100 mb-2" style="box-shadow: 5px 5px 10px #4a6fff">
+            @else
+               <div class="card w-100 mb-2" style="box-shadow: 5px 5px 10px #c5c6c9">
+            @endif
                 <div class="card-header">
                     <h4>{{ $post->header }}</h4>
                 </div>
