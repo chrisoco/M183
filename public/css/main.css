@@ -224,49 +224,6 @@ body {
     right: 120px;
 }
 
-.progress {
-    height: 1.25rem !important;
-}
-.progress-bar {
-    color: black;
-    font-size: medium;
-    text-align: center;
-
-}
-.side-nav {
-    height: 100%; /* 100% Full-height */
-    width: 12%;
-    min-width: 180px;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #3c4463;
-    overflow: hidden;
-    padding-top: 0px; /* Place content 60px from the top */
-}
-
-.side-nav-text {
-    font-weight: bold;
-    color: dodgerblue;
-}
-.side-nav-sub {
-    padding: 5px 2px !important;
-    text-align: center;
-    font-weight: bold;
-    color: dodgerblue;
-    background-color: #3c4463;
-    display: none;
-}
-.intquestion {
-    display: none;
-}
-.questionindex{
-    height: 70px;
-    font-size: small;
-    padding-left: 0;
-    padding-right: 0;
-}
 .added {
     border: 2px solid #1d643b !important;
 }

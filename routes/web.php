@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/', function () {
         return view('index');
-    });
+    })->name('index');
 
     /** INDEX */
     //Route::get('/', 'UserController@welcome')->name('index');

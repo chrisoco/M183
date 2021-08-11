@@ -33,9 +33,6 @@
     <div id="app">
 
         @auth
-            @admin
-                @include('layouts.inc.navbar-side')
-            @endadmin
             @include('layouts.inc.navbar')
         @endauth
 
