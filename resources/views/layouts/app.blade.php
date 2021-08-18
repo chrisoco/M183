@@ -34,6 +34,7 @@
 
         @auth
             @include('layouts.inc.navbar')
+            @include('layouts.inc.navbar-side')
         @endauth
 
         <div class="container-fluid mt-1">
