@@ -69,7 +69,7 @@
                 <div class="card-header">
                     @if($post->user_id == auth()->user()->id)
                         <div class="float-right">
-                            <a href="#" class="mr-3"><i class="far fa-2x fa-edit"></i></a>
+                            <a href="{{ route('news.edit', $post) }}" class="mr-3"><i class="far fa-2x fa-edit"></i></a>
                             <a href="#" class="mr-3" style="color: red"><i class="far fa-2x fa-trash-alt"></i></a>
                         </div>
                     @endif
