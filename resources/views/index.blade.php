@@ -10,6 +10,13 @@
             padding-top: 2px;
             padding-bottom: 2px;
         }
+        .btn-delete {
+            color: red; outline: none;
+            margin-top: -10px;
+        }
+        .btn-delete:hover {
+            color: darkred;
+        }
     </style>
 @endsection
 
@@ -70,7 +77,11 @@
                     @if($post->user_id == auth()->user()->id)
                         <div class="float-right">
                             <a href="{{ route('news.edit', $post) }}" class="mr-3"><i class="far fa-2x fa-edit"></i></a>
-                            <a href="#" class="mr-3" style="color: red"><i class="far fa-2x fa-trash-alt"></i></a>
+                            <form class="d-inline" action="{{ route('news.destroy', $post) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-delete" type="submit"><i class="far fa-2x fa-trash-alt"></i></button>
+                            </form>
                         </div>
                     @endif
                     <h4>{{ $post->header }}</h4>
@@ -79,7 +90,7 @@
                     {{ $post->detail }}
                 </div>
                 <div class="card-footer">
-                    {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y h:s') }}
+                    {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y h:s') }} : {{ $post->user->email }}
                 </div>
             </div>
 

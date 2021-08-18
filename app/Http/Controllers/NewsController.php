@@ -80,7 +80,12 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        return view('news.edit', ['news' => $news]);
+        if(auth()->user()->id == $news->user->id) {
+            return view('news.edit', ['news' => $news]);
+        }
+
+        return redirect(route('index'));
+
     }
 
     /**
@@ -92,7 +97,23 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'header'  => ['required'],
+            'detail'  => ['required'],
+        ], [
+            'required' => 'x',
+        ]);
+
+        if($validator->fails() || auth()->user()->id != $news->user->id) {
+            return redirect(url()->previous())
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $news->update($validator->getData());
+
+        return redirect(route('index'));
+
     }
 
     /**
@@ -103,6 +124,11 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        if(auth()->user()->id == $news->user->id) {
+            $news->delete();
+        }
+
+        return redirect(route('index'));
+
     }
 }
