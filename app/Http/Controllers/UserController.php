@@ -31,11 +31,11 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'old_password'          => ['required', new MatchOldPassword],
-            'password'              => ['required', 'min:5', 'confirmed'],
+            'password'              => ['required', 'min:8', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'regex:/[@$!%*#?&]/', 'confirmed'],
         ], [
             'same'      => 'Das Neue Passwort und die Passwortwiederholung müssen übereinstimmen.',
             'confirmed' => 'Neues Passwort stimmt nicht überein.',
-            'min'       => 'Passwort mind. 5 Zeichen lang.',
+            'min'       => 'Passwort mind. 8 Zeichen lang.',
         ]);
 
         if ($validator->fails()) {
