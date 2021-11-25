@@ -90,7 +90,7 @@
                     {{ $post->detail }}
                 </div>
                 <div class="card-footer">
-                    {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y h:s') }} : {{ $post->user->email }}
+                    {{ \Carbon\Carbon::parse($post->created_at)->format('d.m.Y h:i') }} : {{ $post->user->email }}
                 </div>
             </div>
 
