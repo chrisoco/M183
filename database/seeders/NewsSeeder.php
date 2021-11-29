@@ -14,6 +14,9 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
+        $dispatcher = News::getEventDispatcher();
+        News::unsetEventDispatcher();
         News::factory()->count(10)->create();
+        News::setEventDispatcher($dispatcher);
     }
 }

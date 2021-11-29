@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -15,9 +14,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $updated_at
  * @property User $user
  */
-class News extends Model
+class NewsAudit extends Model
 {
-    use HasFactory, SoftDeletes;
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -28,7 +26,7 @@ class News extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'header', 'detail', 'created_at', 'updated_at'];
+    protected $fillable = ['news_id', 'user_id', 'action', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -39,10 +37,11 @@ class News extends Model
     }
 
     /**
-     * @return bool
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function getCreatedByAdminAttribute(): bool
+    public function news()
     {
-        return $this->user->IsAdmin;
+        return $this->belongsTo('App\Models\News');
     }
+
 }
