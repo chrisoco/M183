@@ -20,3 +20,4 @@ class NewsSeeder extends Seeder
         News::setEventDispatcher($dispatcher);
     }
 }
+

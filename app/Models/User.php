@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
+        'google2fa_secret'
     ];
 
     /**
@@ -31,6 +32,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'google2fa_secret'
     ];
 
     /**
@@ -45,6 +47,28 @@ class User extends Authenticatable
     public function getIsAdminAttribute(): bool
     {
         return $this->role_id == 2;
+    }
+
+    /**
+     * Ecrypt the user's google_2fa secret.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function setGoogle2faSecretAttribute($value)
+    {
+        $this->attributes['google2fa_secret'] = encrypt($value);
+    }
+
+    /**
+     * Decrypt the user's google_2fa secret.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getGoogle2faSecretAttribute($value)
+    {
+        return decrypt($value);
     }
 
 

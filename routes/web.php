@@ -17,7 +17,13 @@ use Illuminate\Support\Facades\Route;
 /** Auth Routes (Login, Register, Logout) */
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function() {
+Route::get('/complete-registration', 'Auth\RegisterController@completeRegistration')->name('complete-reg');
+
+Route::post('/2fa', function () {
+    return redirect(URL()->previous());
+})->name('2fa')->middleware('2fa');
+
+Route::group(['middleware' => ['auth', '2fa']], function() {
 
     /** INDEX */
     Route::get('/', 'UserController@index')->name('index');
